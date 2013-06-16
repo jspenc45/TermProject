@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/filter"
+        android:orderInCategory="3"
+        android:showAsAction="always|withText"
+        android:title="@string/menu_filter">
+        <menu>
+            <item
+                android:id="@+id/recent"
+                android:title="@string/menu_most_recent"/>
+            <item
+                android:id="@+id/popular"
+                android:title="@string/menu_most_popular"/>
+            <item
+                android:id="@+id/type"
+                android:title="@string/menu_by_type">
+                <menu>
+                    <item
+                        android:id="@+id/music"
+                        android:title="@string/ftype1"/>
+                    <item
+                        android:id="@+id/sport"
+                        android:title="@string/ftype2"/>
+                    <item
+                        android:id="@+id/academic"
+                        android:title="@string/ftype3"/>
+                    <item
+                        android:id="@+id/free"
+                        android:title="@string/ftype4"/>
+                    <item
+                        android:id="@+id/other"
+                        android:title="@string/ftype5"/>
+                </menu>
+            </item>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/create"
+        android:orderInCategory="2"
+        android:showAsAction="always|withText"
+        android:title="@string/menu_create">
+    </item>
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="1"
+        android:showAsAction="always|withText"
+        android:title="@string/menu_refresh">
+    </item>
+
+</menu>

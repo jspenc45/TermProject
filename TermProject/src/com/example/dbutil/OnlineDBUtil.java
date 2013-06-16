@@ -26,6 +26,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.termproject.Account;
+import com.example.termproject.Event;
+
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -57,6 +59,35 @@ public class OnlineDBUtil {
 			}
 
 			return account;
+		}
+	}
+	
+	public static class GetEvents extends AsyncTask<String, String, ArrayList<Event>> {
+
+		@Override
+		protected ArrayList<Event> doInBackground(String... arg0) {
+			String query = arg0[0];
+			ArrayList<Event> events = new ArrayList<Event>();
+			JSONObject oauthLoginResponse;
+			try {
+				oauthLoginResponse = oAuthSessionProvider();
+
+				JSONArray queryResponse = getRecords(oauthLoginResponse, query)
+						.getJSONArray("records");
+
+				for (int i = 0; i < queryResponse.length(); i++) {
+					Event event = new Event(queryResponse.getJSONObject(i));
+					events.add(event);
+				}
+			} catch (HttpException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+
+			return events;
 		}
 	}
 	

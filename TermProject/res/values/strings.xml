@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TermProject</string>
+    <string name="app_name">Event Finder</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="label_login">Login:</string>
@@ -19,5 +19,42 @@
     <string name="label_verify_pass_hint">Password</string>
     <string name="label_signup_username">Username:</string>
     <string name="label_signup_password">Password:</string>
+    <string name="student_events">Student Events</string>
+    <string name="campus_events">Campus Events</string>
+    <string name="create_event">Create Event</string>
+    <string name="create">Create</string>
+    <string name="event_name">Event Name</string>
+    <string name="name">Name</string>
+    <string name="location">Location</string>
+    <string name="event_date">Event Date</string>
+    <string name="m_d_yyyy">m/d/yyyy</string>
+    <string name="event_time">Event Time</string>
+    <string name="event_details">Event Details</string>
+    <string name="ex_12_00am">ex: 12:00am</string>
+ 
+    <string name="ftype1">Music</string>  
+    <string name="ftype2">Sport</string>  
+    <string name="ftype3">Academic</string>  
+    <string name="ftype4">Free</string> 
+    <string name="ftype5">Other</string> 
+    
+   
+    <string-array name="type_list">
+        <item>@string/ftype1</item>  
+        <item>@string/ftype2</item>  
+        <item>@string/ftype3</item>  
+        <item>@string/ftype4</item> 
+        <item>@string/ftype5</item> 
+    </string-array>
+    
+    <string name="event_location">Event Location</string>
+    
+    <string name="ex_near_student_union">ex: near student union</string>
+    <string name="menu_by_type">By Type</string>
+    <string name="menu_create">Create</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_filter">Filter</string>
+    <string name="menu_most_recent">Most Recent</string>
+    <string name="menu_most_popular">Most Popular</string>
 
 </resources>

@@ -5,5 +5,6 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item android:id="@+id/item1" android:title="Test" android:showAsAction="always" android:visible="true" android:orderInCategory="1"></item>
 
 </menu>
