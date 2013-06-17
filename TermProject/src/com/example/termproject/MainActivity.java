@@ -17,7 +17,6 @@ public class MainActivity extends FragmentActivity implements
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
 		Fragment fragment = new LoginFragment();
-		fragment.setHasOptionsMenu(true);
 		if (savedInstanceState != null) {
 			fragment = getSupportFragmentManager().getFragment(
 					savedInstanceState, null);

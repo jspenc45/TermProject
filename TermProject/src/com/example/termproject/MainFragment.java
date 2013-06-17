@@ -34,7 +34,7 @@ public class MainFragment extends Fragment {
 		final ActionBar bar = getActivity().getActionBar();
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-		tAdapter = new TabsAdapter(getActivity(), vPager);
+		tAdapter = new TabsAdapter(this, vPager);
 		Bundle args = new Bundle();
 		args.putString("eventType", "Campus");
 		new Bundle().putString("eventType", "Campus");
@@ -68,10 +68,10 @@ public class MainFragment extends Fragment {
 			}
 		}
 
-		public TabsAdapter(FragmentActivity activity, ViewPager pager) {
-			super(activity.getSupportFragmentManager());
-			mContext = activity;
-			mActionBar = activity.getActionBar();
+		public TabsAdapter(Fragment fragment, ViewPager pager) {
+			super(fragment.getChildFragmentManager());
+			mContext = fragment.getActivity();
+			mActionBar = fragment.getActivity().getActionBar();
 			mViewPager = pager;
 			mViewPager.setAdapter(this);
 			mViewPager.setOnPageChangeListener(this);
