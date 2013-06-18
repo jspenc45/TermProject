@@ -61,7 +61,7 @@ public class Event implements Parcelable{
 		json.put("Name__c", name);
 		json.put("Location__c", location);
 		json.put("Details__c", details);
-		json.put("Time__c", name);
+		json.put("Time__c", time);
 		json.put("Date__c", date);
 		json.put("Type__c", type);
 		json.put("Rating__c", rating);

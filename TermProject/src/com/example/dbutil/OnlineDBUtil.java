@@ -100,7 +100,6 @@ public class OnlineDBUtil {
 			JSONObject oauthLoginResponse;
 			try {
 				oauthLoginResponse = oAuthSessionProvider();
-
 				insertRecords(oauthLoginResponse, object, database);
 
 			} catch (HttpException e) {
