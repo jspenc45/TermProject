@@ -91,16 +91,17 @@ public class OnlineDBUtil {
 		}
 	}
 	
-	public static class insertRecords extends AsyncTask<JSONObject, String, Void> {
+	public static class insertRecords extends AsyncTask<Object, String, Void> {
 
 		@Override
-		protected Void doInBackground(JSONObject... params) {
-			JSONObject object = params[0];
+		protected Void doInBackground(Object... params) {
+			JSONObject object = (JSONObject) params[0];
+			String database = (String) params[1];
 			JSONObject oauthLoginResponse;
 			try {
 				oauthLoginResponse = oAuthSessionProvider();
 
-				insertRecords(oauthLoginResponse, object);
+				insertRecords(oauthLoginResponse, object, database);
 
 			} catch (HttpException e) {
 				e.printStackTrace();
@@ -180,7 +181,7 @@ public class OnlineDBUtil {
 		return queryResponse;
 	}
 
-	private static JSONObject insertRecords(JSONObject oauthLoginResponse, JSONObject body)
+	private static JSONObject insertRecords(JSONObject oauthLoginResponse, JSONObject body, String database)
 			throws JSONException, IllegalStateException, IOException {
 		DefaultHttpClient client = new DefaultHttpClient();
 		String accessToken = oauthLoginResponse.get("access_token").toString();
@@ -189,7 +190,7 @@ public class OnlineDBUtil {
 				+ accessToken);
 		HttpPost httpPost = new HttpPost(
 				instanceURL
-						+ "/services/data/v27.0/sobjects/Account__c");
+						+ "/services/data/v27.0/sobjects/" + database);
 		httpPost.addHeader(oauthHeader);
 		
 		StringEntity se = new StringEntity(body.toString());

@@ -56,7 +56,7 @@ public class SignupFragment extends Fragment implements OnClickListener {
 								.findViewById(R.id.password)).getText()
 								.toString());
 				try {
-					new OnlineDBUtil.insertRecords().execute(account.toJSON())
+					new OnlineDBUtil.insertRecords().execute(account.toJSON(),"Account__c")
 							.get();
 				} catch (InterruptedException e) {
 					e.printStackTrace();

@@ -35,6 +35,13 @@ public class EventFragment extends Fragment {
 		events = queryForEvents();
 	}
 
+	@Override
+	public void onResume() {
+		super.onResume();
+		events = queryForEvents();
+		updateView(events);
+	}
+
 	public ArrayList<Event> queryForEvents(){
 		ArrayList<String> select = new ArrayList<String>();
 		select.add("Name__c");
@@ -72,8 +79,8 @@ public class EventFragment extends Fragment {
 			updateView(events);
 			break;
 		case R.id.create:
-			//buttonClicked.onCreateButtonClick();
 			Intent i = new Intent(getActivity(), CreateActivity.class);
+			i.putExtra("eventType", eventType);
 			startActivity(i); 
 			break;
 		case R.id.recent:

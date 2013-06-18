@@ -56,5 +56,6 @@
     <string name="menu_filter">Filter</string>
     <string name="menu_most_recent">Most Recent</string>
     <string name="menu_most_popular">Most Popular</string>
+    <string name="event_type_">Type:</string>
 
 </resources>
