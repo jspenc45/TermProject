@@ -20,6 +20,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -145,6 +147,17 @@ public class EventFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 
 		updateView(events);
+		ListView eventList = (ListView) getView().findViewById(R.id.EventList);
+		eventList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				Intent i = new Intent(getActivity(),ViewEventActivity.class);
+				i.putExtra("event", events.get(position));
+				startActivity(i);
+			}
+		});
 	}
 	
 	public void updateView(ArrayList<Event> events) {

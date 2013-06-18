@@ -48,13 +48,13 @@ public class CreateActivity extends Activity implements OnClickListener {
 			} else {
 				Event event = new Event(((EditText) findViewById(R.id.e_name))
 						.getText().toString(),
-						((EditText) findViewById(R.id.e_date)).getText()
-								.toString(),
-						((EditText) findViewById(R.id.e_time)).getText()
-								.toString(),
 						((EditText) findViewById(R.id.e_location)).getText()
 								.toString(),
 						((EditText) findViewById(R.id.e_details)).getText()
+								.toString(),
+						((EditText) findViewById(R.id.e_time)).getText()
+								.toString(),
+						((EditText) findViewById(R.id.e_date)).getText()
 								.toString(),
 						((Spinner) findViewById(R.id.e_type)).getSelectedItem()
 								.toString(), 0);

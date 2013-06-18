@@ -56,6 +56,22 @@
     <string name="menu_filter">Filter</string>
     <string name="menu_most_recent">Most Recent</string>
     <string name="menu_most_popular">Most Popular</string>
-    <string name="event_type_">Type:</string>
+    <string name="event_type_">Event Type:</string>
+    <string name="event_name_">Event Name:</string>
+    <string name="event_date_">"Event Date: "</string>
+    <string name="b">b</string>
+    <string name="c">c</string>
+    <string name="event_time_">Event Time:</string>
+    <string name="event_location_">"Event location: "</string>
+    <string name="d">d</string>
+    <string name="event_details_">"Event Details: "</string>
+    <string name="plus_">+</string>
+    <string name="minus_">-</string>
+    <string name="rate_event_">Rate Event:</string>
+    <string name="_0">0</string>
+    <string name="back">Back</string>
+    <string name="a">a</string>
+    <string name="e">e</string>
+    <string name="f">f</string>
 
 </resources>

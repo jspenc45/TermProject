@@ -3,7 +3,10 @@ package com.example.termproject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Event {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Event implements Parcelable{
 	
 	//event information
 	public String name;
@@ -43,6 +46,16 @@ public class Event {
 			this.rating = jsonObject.getInt("Rating__c");
 		}
 	}
+	public Event(Parcel in) {
+		this.name = in.readString();
+		this.location = in.readString();
+		this.details = in.readString();
+		this.time = in.readString();
+		this.date = in.readString();
+		this.type = in.readString();
+		this.rating = in.readInt();
+	}
+
 	public JSONObject toJSON() throws JSONException {
 		JSONObject json = new JSONObject();
 		json.put("Name__c", name);
@@ -97,6 +110,30 @@ public class Event {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel out, int flags) {
+		out.writeString(name);
+		out.writeString(location);
+		out.writeString(details);
+		out.writeString(time);
+		out.writeString(date);
+		out.writeString(type);
+		out.writeInt(rating);
+	}
 	
+	public static final Parcelable.Creator<Event> CREATOR = new Parcelable.Creator<Event>() {
+		public Event createFromParcel(Parcel in) {
+			return new Event(in);
+		}
+		public Event[] newArray(int size) {
+			return new Event[size];
+		}
+	};
 	
 }
