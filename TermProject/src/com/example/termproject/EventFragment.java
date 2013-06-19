@@ -29,6 +29,7 @@ import android.widget.Toast;
 public class EventFragment extends Fragment {
 	String eventType;
 	ArrayList<Event> events; 
+	ArrayList<Event> eventsLoaded;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -154,7 +155,7 @@ public class EventFragment extends Fragment {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				Intent i = new Intent(getActivity(),ViewEventActivity.class);
-				i.putExtra("event", events.get(position));
+				i.putExtra("event", eventsLoaded.get(position));
 				startActivity(i);
 			}
 		});
@@ -165,18 +166,23 @@ public class EventFragment extends Fragment {
 			Toast.makeText(getActivity(), "No " + eventType + " events found.",
 					Toast.LENGTH_LONG).show();
 		}
+		eventsLoaded = events;
 		ListView eventList = (ListView) getView().findViewById(R.id.EventList);
 		List<Map<String, String>> eventDisplay = new ArrayList<Map<String, String>>();
 		for (Event e : events) {
 			Map<String, String> display = new HashMap<String, String>();
 			display.put("title", e.getName());
-			// more
+			display.put("type", e.getType());
+			display.put("details", e.getDetails());
+			int x = e.getRating();
+			String rating = ((x>0)?"+":"") + ((x<0)?"-":"") + x;
+			display.put("rating", rating);
 			eventDisplay.add(display);
 		}
 
 		SimpleAdapter adapter = new SimpleAdapter(getActivity(), eventDisplay,
-				android.R.layout.simple_list_item_1, new String[] { "title" },
-				new int[] { android.R.id.text1 });
+				R.layout.list_view, new String[] { "title","type","details","rating" },
+				new int[] { R.id.text1, R.id.text2,R.id.text3,R.id.text4 });
 		eventList.setAdapter(adapter);
 	}
 }

@@ -32,16 +32,34 @@ public class ViewEventActivity extends Activity implements OnClickListener{
         txtType.setText(event.getType());
         String num = event.getRating() + "";
         txtRating.setText(num);
-        //Button button = findview...
-        //button.setOnClickListener(this);
         
+        Button backButton1 = (Button) findViewById(R.id.backButton);
+        backButton1.setOnClickListener(this);
+        
+        Button plusButton1 = (Button) findViewById(R.id.plusButton);
+        plusButton1.setOnClickListener(this);
+        
+        Button minusButton1 = (Button) findViewById(R.id.minusButton);
+        minusButton1.setOnClickListener(this);
+
+
 	}
 
 	@Override
 	public void onClick(View arg0) {
+		TextView ratingField;
+		int num;
 		switch(arg0.getId()){
-		//case R.id.buttonName://do code
-			//break;
+		case R.id.plusButton:
+			ratingField = (TextView) findViewById(R.id.ratingCounter);
+			num = Integer.parseInt(ratingField.getText().toString())+1;
+			ratingField.setText(num+"");
+		break;
+		case R.id.minusButton:
+			ratingField = (TextView) findViewById(R.id.ratingCounter);
+			num = Integer.parseInt(ratingField.getText().toString())-1;
+			ratingField.setText(num+"");
+		break;
 		case R.id.backButton:
 			finish();
 			break;
