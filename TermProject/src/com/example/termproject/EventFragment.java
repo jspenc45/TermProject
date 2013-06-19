@@ -175,7 +175,7 @@ public class EventFragment extends Fragment {
 			display.put("type", e.getType());
 			display.put("details", e.getDetails());
 			int x = e.getRating();
-			String rating = ((x>0)?"+":"") + ((x<0)?"-":"") + x;
+			String rating = ((x>0)?"+":"") + x;
 			display.put("rating", rating);
 			eventDisplay.add(display);
 		}
