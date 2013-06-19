@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ViewEventActivity extends Activity implements OnClickListener{
-	
+	boolean plussed = false;
+	boolean minussed = false;
 	@Override
 	public void onCreate(Bundle arg) {
         super.onCreate(arg);
@@ -52,12 +53,30 @@ public class ViewEventActivity extends Activity implements OnClickListener{
 		switch(arg0.getId()){
 		case R.id.plusButton:
 			ratingField = (TextView) findViewById(R.id.ratingCounter);
+			Button plusButton1 = (Button) findViewById(R.id.plusButton);
+			Button minusButton1 = (Button) findViewById(R.id.minusButton);
 			num = Integer.parseInt(ratingField.getText().toString())+1;
+			plussed = true;
+			if (minussed) {
+				minussed = false;
+				minusButton1.setEnabled(true);
+				num++;
+			}
+			plusButton1.setEnabled(false);
 			ratingField.setText(num+"");
 		break;
 		case R.id.minusButton:
 			ratingField = (TextView) findViewById(R.id.ratingCounter);
+			Button plusButton = (Button) findViewById(R.id.plusButton);
+			Button minusButton = (Button) findViewById(R.id.minusButton);
 			num = Integer.parseInt(ratingField.getText().toString())-1;
+			minussed = true;
+			if (plussed) {
+				plussed = false;
+				plusButton.setEnabled(true);
+				num--;
+			}
+			minusButton.setEnabled(false);
 			ratingField.setText(num+"");
 		break;
 		case R.id.backButton:

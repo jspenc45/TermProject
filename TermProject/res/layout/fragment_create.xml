@@ -103,7 +103,7 @@
                 android:layout_below="@+id/time_text"
                 android:ems="10"
                 android:hint="@string/ex_12_00am"
-                android:inputType="time" />
+                android:inputType="text|time" />
 
             <EditText
                 android:id="@+id/e_details"
